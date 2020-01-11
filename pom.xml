@@ -12,7 +12,7 @@
 
 	<groupId>com.am</groupId>
 	<artifactId>spring-redis</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>spring-redis</name>
 	<description>spring-boot redis integration</description>
 
@@ -23,9 +23,21 @@
 	</properties>
 
 	<dependencies>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+			<version>2.2.2.RELEASE</version>
 		</dependency>
 
 		<dependency>
@@ -34,19 +46,28 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!--LOMBOK-->
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 		<!--REDIS DEPENDENCIES-->
 
 		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-redis</artifactId>
-			<version>2.0.3.RELEASE</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
 		</dependency>
 
+		<!--REDIS DEPENDENCIES: for tests-->
+
 		<dependency>
-			<groupId>redis.clients</groupId>
-			<artifactId>jedis</artifactId>
-			<version>2.9.0</version>
-			<type>jar</type>
+			<groupId>it.ozimov</groupId>
+			<artifactId>embedded-redis</artifactId>
+			<version>0.7.2</version>
+			<scope>test</scope>
 		</dependency>
 
 	</dependencies>
@@ -59,32 +80,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<profiles>
-		<profile>
-			<id>dev</id>
-			<properties>
-				<profileActive>dev</profileActive>
-
-			</properties>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-		</profile>
-		<profile>
-			<id>staging</id>
-			<properties>
-				<profileActive>staging</profileActive>
-
-			</properties>
-		</profile>
-		<profile>
-			<id>production</id>
-			<properties>
-				<profileActive>production</profileActive>
-
-			</properties>
-		</profile>
-	</profiles>
 
 </project>

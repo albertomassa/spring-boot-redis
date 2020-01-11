@@ -4,13 +4,10 @@ server:
 spring:
   application:
     profiles:
-      active: @profileActive@
-
-redis:
+      active: dev
+  redis:
     host: localhost
     port: 6379
-    user: user
-    password: password
 
 
 
